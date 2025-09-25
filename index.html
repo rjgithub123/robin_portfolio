@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Robin Joseph — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <meta name="description" content="Robin Joseph — Laravel Developer | React Enthusiast | 8+ years" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220aa;
+      --glass: rgba(255,255,255,0.06);
+      --accent-1: #ff6b6b;
+      --accent-2: #7c5cff;
+      --accent-3: #2bd4d4;
+      --text: #e6eef8;
+      --muted: #9aa8bd;
+      --glass-border: rgba(255,255,255,0.06);
+      --glass-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.12), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(43,212,212,0.08), transparent 10%),
+                  linear-gradient(180deg,#071023 0%, #081226 100%);
+      color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:40px 20px;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;
+    }
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-family:Poppins;font-size:18px;box-shadow:0 6px 18px rgba(124,92,255,0.12);
+    }
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600;font-size:14px}
+    nav a:hover{color:var(--text);background:linear-gradient(90deg, rgba(255,255,255,0.03), transparent)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:42px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:34px;box-shadow:var(--glass-shadow);border:1px solid var(--glass-border)}
+    h1{font-family:Poppins;font-size:36px;margin:0 0 8px}
+    .lead{color:var(--muted);margin-bottom:18px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 8px 30px rgba(124,92,255,0.12)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+    /* Skill chips */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{padding:8px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);color:var(--muted);font-weight:600;font-size:13px}
+
+    /* Right panel */
+    .profile{background:linear-gradient(135deg, rgba(124,92,255,0.06), rgba(43,212,212,0.04));padding:18px;border-radius:14px;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:20px;margin:0 auto;background:linear-gradient(180deg,var(--accent-2),var(--accent-3));display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;color:white}
+    .meta{margin-top:12px}
+    .stat-grid{display:flex;gap:12px;justify-content:center;margin-top:12px}
+    .stat{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:10px;font-weight:700}
+
+    /* Projects */
+    .section{margin-bottom:42px}
+    .section h2{font-size:20px;margin:0 0 12px}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04);transition:transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s}
+    .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .proj-visual{height:120px;border-radius:10px;overflow:hidden;margin-bottom:12px;background:linear-gradient(135deg,var(--accent-2),var(--accent-3));display:flex;align-items:center;justify-content:center;color:white;font-weight:800}
+    .proj-title{font-weight:800;margin:0 0 6px}
+    .proj-desc{color:var(--muted);font-size:14px}
+    .proj-tags{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* Skills + timeline */
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .skill-bar{background:rgba(255,255,255,0.03);border-radius:999px;padding:6px}
+    .skill-fill{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));transition:width .6s}
+
+    /* Contact */
+    .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:var(--text);outline:none}
+    textarea{grid-column:1 / -1;min-height:120px}
+
+    footer{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px dashed rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      .skills-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .projects{grid-template-columns:1fr}
+      .container{padding:0 8px}
+      header{margin-bottom:18px}
+    }
+
+    /* little animated gradient background for headings */
+    .fancy{display:inline-block;background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
+
+    /* floating blobs */
+    .blob{position:fixed;z-index:0;filter:blur(60px);opacity:0.14}
+    .blob.b1{width:420px;height:420px;left:-80px;top:-120px;background:radial-gradient(circle at 30% 30%,var(--accent-2),transparent 40%)}
+    .blob.b2{width:360px;height:360px;right:-80px;bottom:-120px;background:radial-gradient(circle at 70% 70%,var(--accent-3),transparent 40%)}
+
+  </style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">RJ</div>
+        <div>
+          <div style="font-weight:800">Robin Joseph</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Laravel • React • Full-stack</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-ghost" href="#contact">Hire me</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Hi, I'm <span class="fancy">Robin</span> — a Laravel developer building delightful web experiences.</h1>
+        <p class="lead">I build fast, maintainable web apps and beautiful front-ends. I enjoy turning complex problems into simple, elegant solutions.</p>
+        <div class="chips">
+          <div class="chip">Laravel</div>
+          <div class="chip">React</div>
+          <div class="chip">TypeScript</div>
+          <div class="chip">AWS</div>
+          <div class="chip">MySQL</div>
+        </div>
+
+        <div style="margin-top:18px" class="cta">
+          <button class="btn btn-primary" onclick="scrollToSection('projects')">View projects</button>
+          <a class="btn btn-ghost" href="#contact">Contact</a>
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:12px;align-items:center">
+          <div style="flex:1">
+            <div style="font-size:12px;color:var(--muted)">Experience</div>
+            <div style="font-weight:800">8+ years</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:12px;color:var(--muted)">Availability</div>
+            <div style="font-weight:800;color:#7be495">Open to work</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="profile">
+        <div class="avatar">RJ</div>
+        <div class="meta">
+          <div style="font-weight:800;margin-top:12px">Robin Joseph</div>
+          <div style="color:var(--muted);font-size:13px;margin-top:4px">Full Stack Developer</div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat">50+ Projects</div>
+          <div class="stat">8 yrs</div>
+        </div>
+
+        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Available for freelance & full-time roles</div>
+      </aside>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Selected <span class="fancy">Projects</span></h2>
+      <div class="projects">
+        <article class="card">
+          <div class="proj-visual">E‑Com</div>
+          <h3 class="proj-title">Modern E‑commerce</h3>
+          <p class="proj-desc">A Laravel + React store with SSR-friendly pages, payment integration, and admin dashboard.</p>
+          <div class="proj-tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">Stripe</span></div>
+        </article>
+
+        <article class="card">
+          <div class="proj-visual">CRM</div>
+          <h3 class="proj-title">Custom CRM</h3>
+          <p class="proj-desc">A lightweight CRM for small businesses: contact management, pipelines, and CSV exports.</p>
+          <div class="proj-tags"><span class="tag">MySQL</span><span class="tag">API</span></div>
+        </article>
+
+        <article class="card">
+          <div class="proj-visual">Portal</div>
+          <h3 class="proj-title">Admin Portal</h3>
+          <p class="proj-desc">Admin portal with role-based auth, audit logs, and charting for operational metrics.</p>
+          <div class="proj-tags"><span class="tag">Laravel</span><span class="tag">Charts</span></div>
+        </article>
+
+        <article class="card">
+          <div class="proj-visual">Mobile</div>
+          <h3 class="proj-title">React Native App</h3>
+          <p class="proj-desc">Cross-platform mobile app for field teams with offline sync and push notifications.</p>
+          <div class="proj-tags"><span class="tag">React Native</span><span class="tag">Offline</span></div>
+        </article>
+
+        <article class="card">
+          <div class="proj-visual">Docs</div>
+          <h3 class="proj-title">Docs & Onboarding</h3>
+          <p class="proj-desc">Docs site with searchable guides, code snippets, and versioned releases.</p>
+          <div class="proj-tags"><span class="tag">MDX</span><span class="tag">Vite</span></div>
+        </article>
+
+        <article class="card">
+          <div class="proj-visual">Design</div>
+          <h3 class="proj-title">Design System</h3>
+          <p class="proj-desc">Component library with tokens, accessibility-first patterns, and Storybook integration.</p>
+          <div class="proj-tags"><span class="tag">Design</span><span class="tag">Storybook</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills & Experience</h2>
+      <div class="skills-grid">
+        <div>
+          <h3 style="margin-bottom:8px">Core Skills</h3>
+          <div style="margin-bottom:10px">Laravel <span style="float:right;font-weight:800">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+
+          <div style="margin:12px 0 10px">React <span style="float:right;font-weight:800">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+
+          <div style="margin:12px 0 10px">DevOps <span style="float:right;font-weight:800">72%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom:8px">Tools & Others</h3>
+          <div style="margin-bottom:10px">MySQL <span style="float:right;font-weight:800">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+
+          <div style="margin:12px 0 10px">Testing <span style="float:right;font-weight:800">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+
+          <div style="margin:12px 0 10px">TypeScript <span style="float:right;font-weight:800">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="hero-card">
+        <form onsubmit="handleContact(event)">
+          <div class="contact-form">
+            <input id="name" placeholder="Your name" required />
+            <input id="email" type="email" placeholder="Your email" required />
+            <input id="subject" placeholder="Subject" />
+            <textarea id="message" placeholder="Message" required></textarea>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <button class="btn btn-primary" type="submit">Send message</button>
+            <a class="btn btn-ghost" href="mailto:youremail@example.com">Email me</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Robin Joseph</div>
+      <div style="display:flex;gap:12px">
+        <a href="#" style="color:var(--muted);text-decoration:none">GitHub</a>
+        <a href="#" style="color:var(--muted);text-decoration:none">LinkedIn</a>
+        <a href="#" style="color:var(--muted);text-decoration:none">Resume</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    function scrollToSection(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'Contact from portfolio';
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){alert('Please fill required fields');return}
+      // This example opens mail client. For production, wire up to serverless function or email service.
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location = `mailto:youremail@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    }
+
+    // small entrance animations
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.card').forEach((c,i)=>{
+        c.style.transitionDelay = (i*60)+'ms'
+      })
+    })
+  </script>
+</body>
+</html>
